@@ -9,6 +9,8 @@ const usersRoute = require('./routes/users.js');
 const tentangKamiRoute = require('./routes/tentang_kami.js');
 const kategoriRoute = require('./routes/kategori.js');
 const kategoriItemRoute = require('./routes/category_item.js');
+const projectRoute = require('./routes/project.js');
+const projectItemRoute = require('./routes/project_item.js');
 const teamRoute = require('./routes/team.js');
 const teamItemRoute = require('./routes/team_item.js');
 const layananRoute = require('./routes/layanan.js');
@@ -31,6 +33,8 @@ app.use('/home', homeRoute)
 app.use('/tentang-kami', tentangKamiRoute)
 app.use('/kategori', kategoriRoute)
 app.use('/kategori-item', kategoriItemRoute)
+app.use('/project', projectRoute)
+app.use('/project-item', projectItemRoute)
 app.use('/team', teamRoute)
 app.use('/team-item', teamItemRoute)
 app.use('/layanan', layananRoute)

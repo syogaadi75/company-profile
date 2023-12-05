@@ -15,6 +15,8 @@ const CategoryItem = require('../models/CategoryItem')
 const LayananItem = require('../models/LayananItem')
 const TestimoniItem = require('../models/TestimoniItem')
 const TeamItem = require('../models/TeamItem')
+const Project = require('../models/Project')
+const ProjectItem = require('../models/ProjectItem')
 
 router.get('/', verifyToken, async (req, res) => {
     try {
@@ -73,12 +75,14 @@ router.get('/get-content/:id', async (req, res) => {
         const home = await Home.findOne({ id_user: id });
         const tentang_kami = await TentangKami.findOne({ id_user: id });
         const kategori = await Kategori.findOne({ id_user: id });
+        const project = await Project.findOne({ id_user: id });
         const team = await Team.findOne({ id_user: id });
         const layanan = await Layanan.findOne({ id_user: id });
         const testimoni = await Testimoni.findOne({ id_user: id });
         const contact = await Contact.findOne({ id_user: id });
         // items
         const kategori_items = await CategoryItem.find({ id_user: id });
+        const project_items = await ProjectItem.find({ id_user: id });
         const team_items = await TeamItem.find({ id_user: id });
         const layanan_items = await LayananItem.find({ id_user: id });
         const testimoni_items = await TestimoniItem.find({ id_user: id });
@@ -87,6 +91,7 @@ router.get('/get-content/:id', async (req, res) => {
             home,
             tentang_kami,
             kategori,
+            project,
             team,
             layanan,
             testimoni,
@@ -94,7 +99,8 @@ router.get('/get-content/:id', async (req, res) => {
             kategori_items,
             team_items,
             layanan_items,
-            testimoni_items
+            testimoni_items,
+            project_items
         }
 
         res.send(data);
